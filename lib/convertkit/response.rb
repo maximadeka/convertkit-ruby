@@ -1,3 +1,6 @@
+require "convertkit/resources"
+require "convertkit/collections"
+
 module Convertkit
   class Response
     attr_reader :status, :body, :links, :meta
@@ -19,6 +22,12 @@ module Convertkit
       status == other.status &&
       body == other.body
     end
+    
+    def respond_to?(method_name, include_private = false)
+      member_map.keys.include?(method_name) || super
+    end
+    
+    private
     
     def parse_links
       body.is_a?(Hash) ? body.delete(:links) : nil

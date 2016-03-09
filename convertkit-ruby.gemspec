@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Raymond Cudjoe"]
   spec.email         = ["rkcudjoe@gmail.com"]
 
-  spec.summary       = %q{A Ruby gem for interacting with the ConvertKit API}
+  spec.summary       = %q{A Ruby gem for interacting with the ConvertKit API v3}
   spec.description   = %q{A simple wrapper for the ConvertKit API}
   spec.homepage      = "https://github.com/hookengine/convertkit-ruby"
   spec.license       = "MIT"

@@ -1,15 +1,20 @@
 require "convertkit/response"
+require "convertkit/client/subscribers"
 require "faraday"
 require "faraday_middleware"
 require "json"
 
 module Convertkit
   class Client
+    include Subscribers
+    
     attr_accessor :api_secret, :api_key
     
     def initialize
       @api_secret = Convertkit.configuration.api_secret
       @api_key = Convertkit.configuration.api_key
+      
+      yield (self) if block_given?
     end
     
     def generate_resource(key, *args)

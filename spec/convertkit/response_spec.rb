@@ -89,7 +89,7 @@ module Convertkit
           end
         
         it "returns meta object" do
-          expect(@subject.meta).to equal(@meta)
+          expect(@subject.meta).to eq(@meta)
         end
       end
       

@@ -23,10 +23,6 @@ module Convertkit
       body == other.body
     end
     
-    def respond_to?(method_name, include_private = false)
-      member_map.keys.include?(method_name) || super
-    end
-    
     private
     
     def parse_links

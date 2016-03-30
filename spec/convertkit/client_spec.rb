@@ -5,19 +5,19 @@ module Convertkit
   describe Client do
     before :each do
       Convertkit.configure do |config|
-        config.api_secret = "client_secret"
-        config.api_key = "client_key"
+        config.api_secret = "7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng"
+        config.api_key = "NKN6OZ--XGOzjEeTRC-ybg"
       end
       @client = Convertkit::Client.new
     end
     
     describe "#initialize" do
       it "has a default api_secret value" do
-        expect(@client.api_secret).to eq("client_secret")
+        expect(@client.api_secret).to eq("7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng")
       end
       
       it "has a default api_key value" do
-        expect(@client.api_key).to eq("client_key")
+        expect(@client.api_key).to eq("NKN6OZ--XGOzjEeTRC-ybg")
       end
     end
     
@@ -33,18 +33,16 @@ module Convertkit
     end
     
     context "authorization" do
-      it "uses Basic authentication" do
+      it "uses api key" do
         @client.api_secret = nil
-        
-        header = "Basic #{Base64.encode64(@client.api_key + ":")}".strip
-        expect(@client.connection.headers["Authorization"]).to eq(header)
+
+        expect(@client.connection.params["api_key"]).to eq("NKN6OZ--XGOzjEeTRC-ybg")
       end
       
-      it "uses Bearer token authentication" do
+      it "uses api secret" do
         @client.api_key = nil
         
-        header = "Bearer #{@client.api_secret}"
-        expect(@client.connection.headers["Authorization"]).to eq(header)
+        expect(@client.connection.params["api_secret"]).to eq("7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng")
       end
     end
   end

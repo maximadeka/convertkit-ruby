@@ -70,15 +70,13 @@ module Convertkit
       @connection ||= Faraday.new do |f|
         f.adapter :net_http
         f.url_prefix = "https://api.convertkit.com/v3/"
+        
         f.headers['User-Agent'] = "Convertkit Ruby v#{Convertkit::VERSION}"
         f.headers['Content-Type'] = content_type
         f.headers['Accept'] = "*/*"
-        
-        if api_secret
-          f.headers['Authorization'] = "Bearer #{api_secret}"
-        else
-          f.basic_auth api_key,""
-        end
+
+        f.params['api_secret'] = api_secret
+        f.params['api_key'] = api_key
         
         f.response :json, content_type: /\bjson$/
       end

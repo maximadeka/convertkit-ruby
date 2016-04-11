@@ -1,5 +1,4 @@
 require "cgi"
-require "convertkit/client"
 
 module Convertkit
   class Client

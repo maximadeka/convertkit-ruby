@@ -31,7 +31,6 @@ module Convertkit
         it "sends the request"
 
       end
-        
     end
   end
 end

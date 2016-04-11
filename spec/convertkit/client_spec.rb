@@ -21,17 +21,6 @@ module Convertkit
       end
     end
     
-    describe "#generate_resource" do
-      before do
-        @key =  :subscribers
-        @data = { email: "jane@domain.com", first_name: "Jane" }
-      end
-      
-      it "returns a JSON API payload" do
-        expect(@client.generate_resource(@key, @data)).to eql({@key => [@data]})
-      end
-    end
-    
     context "authorization" do
       it "uses api key" do
         @client.api_secret = nil

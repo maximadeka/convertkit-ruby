@@ -1,4 +1,3 @@
-require "convertkit/response"
 require "convertkit/client/subscribers"
 require "faraday"
 require "faraday_middleware"
@@ -13,57 +12,10 @@ module Convertkit
     def initialize
       @api_secret = Convertkit.configuration.api_secret
       @api_key = Convertkit.configuration.api_key
-      
-      yield (self) if block_given?
-    end
-    
-    def generate_resource(key, *args)
-      { key => args }
     end
     
     def content_type
       'application/vnd.api+json'
-    end
-    
-    def get(url, options = {})
-      build_response do
-        connection.get do |req|
-          req.url url
-          req.params = options
-        end
-      end
-    end
-    
-    def post(url, options = {})
-      build_response do
-        connection.post do |req|
-          req.url url
-          req.body = options.to_json
-        end
-      end
-    end
-    
-    def put(url, options = {})
-      build_response do
-        connection.put do |req|
-          req.url url
-          req.body = options.to_json
-        end
-      end
-    end
-    
-    def delete(url, options = {})
-      build_response do
-        connection.delete do |req|
-          req.url url
-          req.body = options.to_json
-        end
-      end
-    end
-    
-    def build_response(&block)
-      response = yield
-      Convertkit::Response.new(response.status, response.body)
     end
     
     def connection

@@ -1,8 +1,6 @@
 require "convertkit/version"
 require "convertkit/configuration"
 require "convertkit/client"
-require "dotenv"
-Dotenv.load(".env.local")
 
 module Convertkit
   class << self

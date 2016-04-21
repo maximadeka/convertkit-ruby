@@ -5,8 +5,8 @@ module Convertkit
     describe Subscribers do
       before do 
         Convertkit.configure do |config|
-          config.api_secret = "7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng"
-          config.api_key = "NKN6OZ--XGOzjEeTRC-ybg"
+          config.api_secret = ENV["API_SECRET"]
+          config.api_key = ENV["API_KEY"]
         end
         
         @client = Convertkit::Client.new

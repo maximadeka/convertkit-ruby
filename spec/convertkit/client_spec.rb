@@ -5,19 +5,19 @@ module Convertkit
   describe Client do
     before :each do
       Convertkit.configure do |config|
-        config.api_secret = "7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng"
-        config.api_key = "NKN6OZ--XGOzjEeTRC-ybg"
+        config.api_secret = ENV["API_SECRET"]
+        config.api_key = ENV["API_KEY"]
       end
       @client = Convertkit::Client.new
     end
     
     describe "#initialize" do
       it "has a default api_secret value" do
-        expect(@client.api_secret).to eq("7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng")
+        expect(@client.api_secret).to eq(ENV["API_SECRET"])
       end
       
       it "has a default api_key value" do
-        expect(@client.api_key).to eq("NKN6OZ--XGOzjEeTRC-ybg")
+        expect(@client.api_key).to eq(ENV["API_KEY"])
       end
     end
     
@@ -25,13 +25,13 @@ module Convertkit
       it "uses api key" do
         @client.api_secret = nil
 
-        expect(@client.connection.params["api_key"]).to eq("NKN6OZ--XGOzjEeTRC-ybg")
+        expect(@client.connection.params["api_key"]).to eq(ENV["API_KEY"])
       end
       
       it "uses api secret" do
         @client.api_key = nil
         
-        expect(@client.connection.params["api_secret"]).to eq("7ODslJwW6CbZyQiurW90Samr5-hnLRk4C8m0ngh6xng")
+        expect(@client.connection.params["api_secret"]).to eq(ENV["API_SECRET"])
       end
     end
   end

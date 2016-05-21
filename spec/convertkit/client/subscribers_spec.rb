@@ -26,11 +26,6 @@ module Convertkit
           expect(@client.subscriber(subscriber_id).body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})
         end
       end
-
-      describe "#create_subscriber" do
-        it "sends the request"
-
-      end
     end
   end
 end

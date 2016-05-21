@@ -1,5 +1,3 @@
-require "cgi"
-
 module Convertkit
   class Client
     module Subscribers
@@ -8,12 +6,8 @@ module Convertkit
       end
 
       def subscriber(subscriber_id)
-      	connection.get("subscribers/#{CGI.escape subscriber_id}")
+      	connection.get("subscribers/#{subscriber_id}")
       end
-
-      # def create_subscriber(email, options = {})
-      	
-      # end
     end
   end
 end

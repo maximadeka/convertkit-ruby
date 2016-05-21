@@ -16,8 +16,7 @@ module Convertkit
       	it "sends the right request" do
       		expect(@client.sequences.success?).to be_truthy
 
-      		expect(@client.sequences.body).to_not eql({"error"=>"Authorization Failed",
-																										 "message"=>"API Key not present"})
+      		expect(@client.sequences.body).to_not eql({"error"=>"Authorization Failed","message"=>"API Key not present"})
       	end
       end
 
@@ -26,12 +25,9 @@ module Convertkit
       		sequence_id = "15402"
       		email = "rkcudjoe@gmail.com"
 
-      		expect(@client.add_subscriber_to_sequence(sequence_id, email,
-																										first_name: "Raymond Cudjoe",
-					 																					tags: "26471,45372")).to be_truthy
+      		expect(@client.add_subscriber_to_sequence(sequence_id, email,first_name: "Raymond Cudjoe", tags: "26471,45372")).to be_truthy
 
-      		expect(@client.add_subscriber_to_sequence(sequence_id, email).body).to_not eql({"error"=>"Missing parameter",
-																																													"message"=>"Subscriber email is required"})
+      		expect(@client.add_subscriber_to_sequence(sequence_id, email).body).to_not eql({"error"=>"Missing parameter","message"=>"Subscriber email is required"})
       	end
       end
 		end

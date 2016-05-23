@@ -6,12 +6,12 @@ require 'convertkit/version'
 Gem::Specification.new do |spec|
   spec.name          = "convertkit-ruby"
   spec.version       = Convertkit::VERSION
-  spec.authors       = ["Raymond Cudjoe"]
-  spec.email         = ["rkcudjoe@gmail.com"]
+  spec.authors       = ["Raymond Cudjoe","Hook Engine"]
+  spec.email         = ["rkcudjoe@gmail.com","rkcudjoe@hookengine.com"]
 
   spec.summary       = %q{A Ruby gem for interacting with the ConvertKit API v3}
   spec.description   = %q{A simple wrapper for the ConvertKit API}
-  spec.homepage      = "https://github.com/hookengine/convertkit-ruby"
+  spec.homepage      = "http://hookengine.com"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

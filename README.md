@@ -44,7 +44,7 @@ API actions are available as methods on the client object. Currently, the Conver
 |:------------------------|:-----------------------------|
 | List subscribers    		| `#subscribers(options = {})` |
 | Fetch a subscriber  		| `#subscriber(subscriber_id)` |
-| List sequences/courses  | `#sequences									 |
+| List sequences/courses  | `#sequences`									 |
 | Add subscriber to sequence | `#add_subscriber_to_sequence(sequence_id, email, options = {})`|
 
 **Note:** We do not have complete API coverage yet. If we are missing an API method

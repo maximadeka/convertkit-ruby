@@ -55,7 +55,7 @@ pull request. [See the official API documentation](http://kb.convertkit.com/arti
 
 Here are some common use cases for the Convertkit v3 API client.
 
-First configure ``convertkit-ruby`` gem with your ``API_KEY`` and ``API_SECRET``, and initialize a new client. After that, you can fetch data from your account.
+First configure the ``convertkit-ruby`` gem with your ``API_KEY`` and ``API_SECRET``, and initialize a new client. After that, you can fetch data from your account.
 
 ### List subscribers
 

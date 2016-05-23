@@ -1,5 +1,5 @@
 module Convertkit
-	class Client
+  class Client
 		module Sequences
 			def sequences
 				connection.get("sequences")
@@ -13,5 +13,5 @@ module Convertkit
 				end
 			end
 		end
-	end
+  end
 end

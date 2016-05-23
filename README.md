@@ -18,8 +18,68 @@ Or install it yourself as:
 
     $ gem install convertkit-ruby
 
+## Authentication
+
+For private integrations, use your personal ``API_KEY`` and ``API_SECRET`` found in [your account settings.](https://app.convertkit.com/account/edit)
+
+```ruby
+require "dotenv"
+Dotenv.load(".env.local")
+
+Convertkit.configure do |config|
+	config.api_secret = ENV["API_SECRET"]
+	config.api_key = ENV["API_KEY"]
+end
+
+client = Convertkit::Client.new
+```
+
 ## Usage
 
+Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v3](http://api.convertkit.com/v3)
+
+API actions are available as methods on the client object. Currently, the Convertkit client has the following methods:
+
+| Action               		| Method             					 |
+|:------------------------|:-----------------------------|
+| List subscribers    		| `#subscribers(options = {})` |
+| Fetch a subscriber  		| `#subscriber(subscriber_id)` |
+| List sequences/courses  | `#sequences									 |
+| Add subscriber to sequence | `#add_subscriber_to_sequence(sequence_id, email, options = {})`|
+
+**Note:** We do not have complete API coverage yet. If we are missing an API method
+that you need to use in your application, please file an issue and/or open a
+pull request. [See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
+
+## Use Cases
+
+Here are some common use cases for the Convertkit v3 API client.
+
+First configure ``convertkit-ruby`` gem with your ``API_KEY`` and ``API_SECRET``, and initialize a new client. After that, you can fetch data from your account.
+
+### List subscribers
+
+List all subscribers added to your account on or after a certain a specific date.
+
+```ruby
+response = client.subscribers(from: "2016-03-01")
+# => <Faraday::Response ...>
+
+response.status
+# => 200
+```
+
+### Fetching subscriber data
+
+Subscribers can be looked up by their ``subscriber_id``.
+
+```ruby
+response = client.subscriber("17682009")
+# => <Faraday::Response ...>
+
+response.status
+# => 200
+```
 
 ## Development
 
@@ -31,8 +91,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hookengine/convertkit-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+1. Fork it ( https://github.com/hookengine/convertkit-ruby/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

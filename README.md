@@ -59,7 +59,7 @@ First configure the ``convertkit-ruby`` gem with your ``API_KEY`` and ``API_SECR
 
 ### List subscribers
 
-List all subscribers added to your account on or after a certain a specific date.
+List all subscribers added to your account on or after a specific date.
 
 ```ruby
 response = client.subscribers(from: "2016-03-01")

@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Convertkit
   class Client
-    describe Subscribers do
+    describe Tags do
       before do
         Convertkit.configure do |config|
           config.api_secret = ENV["API_SECRET"]
@@ -12,21 +12,22 @@ module Convertkit
         @client = Convertkit::Client.new
       end
 
-      describe "#subscribers" do
+      describe "#tags" do
         it "sends the right request" do
-          r = @client.subscribers
+          r = @client.tags
           expect(r.success?).to be_truthy
-          expect(r.body).to_not eql({"error"=>"Authorization Failed", "message"=>"API Key not present"})
+          expect(r.body).to_not eql({"error"=>"Authorization Failed","message"=>"API Key not present"})
         end
       end
 
-      describe "#subscriber" do
+      describe "#add_subscriber_to_tag" do
         it "sends the right request" do
-          subscriber_id = ENV['SUBSCRIBER_ID']
+          tag_id = ENV['TAG_ID']
+          email = "crt-tags+#{Time.now.to_i}@example.com"
 
-          r = @client.subscriber(subscriber_id)
+          r = @client.add_subscriber_to_tag(tag_id, email)
           expect(r.success?).to be_truthy
-          expect(r.body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})
+          expect(r.body).to_not eql({"error"=>"Missing parameter","message"=>"Subscriber email is required"})
         end
       end
     end

@@ -6,7 +6,7 @@ module Convertkit
       end
 
       def subscriber(subscriber_id)
-      	connection.get("subscribers/#{subscriber_id}")
+        connection.get("subscribers/#{subscriber_id}")
       end
     end
   end

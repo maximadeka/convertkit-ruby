@@ -27,8 +27,8 @@ require "dotenv"
 Dotenv.load(".env.local")
 
 Convertkit.configure do |config|
-	config.api_secret = ENV["API_SECRET"]
-	config.api_key = ENV["API_KEY"]
+  config.api_secret = ENV["API_SECRET"]
+  config.api_key = ENV["API_KEY"]
 end
 
 client = Convertkit::Client.new
@@ -36,20 +36,20 @@ client = Convertkit::Client.new
 
 ## Usage
 
-Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v3](http://api.convertkit.com/v3)
+Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v3](http://api.convertkit.com/v3).
 
 API actions are available as methods on the client object. Currently, the Convertkit client has the following methods:
 
-| Action               		| Method             					 |
+| Action                  | Method                       |
 |:------------------------|:-----------------------------|
-| List subscribers    		| `#subscribers(options = {})` |
-| Fetch a subscriber  		| `#subscriber(subscriber_id)` |
-| List sequences/courses  | `#sequences`									 |
+| List subscribers        | `#subscribers(options = {})` |
+| Fetch a subscriber      | `#subscriber(subscriber_id)` |
+| List sequences/courses  | `#sequences`                 |
 | Add subscriber to sequence | `#add_subscriber_to_sequence(sequence_id, email, options = {})`|
+| List tags               | `#tags`                      |
+| Add subscriber to tag   | `#add_subscriber_to_tag(tag_id, email, options = {})`|
 
-**Note:** We do not have complete API coverage yet. If we are missing an API method
-that you need to use in your application, please file an issue and/or open a
-pull request. [See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
+**Note:** We do not have complete API coverage yet. If we are missing an API method that you need to use in your application, please file an issue and/or open a pull request. [See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
 
 ## Use Cases
 

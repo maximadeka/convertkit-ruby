@@ -1,5 +1,6 @@
 require "convertkit/client/sequences"
 require "convertkit/client/subscribers"
+require "convertkit/client/tags"
 require "faraday"
 require "faraday_middleware"
 require "json"
@@ -8,12 +9,13 @@ module Convertkit
   class Client
     include Subscribers
     include Sequences
+    include Tags
 
     attr_accessor :api_secret, :api_key
 
-    def initialize
-      @api_secret = Convertkit.configuration.api_secret
-      @api_key = Convertkit.configuration.api_key
+    def initialize( api_key=nil, api_secret=nil )
+      @api_secret = api_secret || Convertkit.configuration.api_secret
+      @api_key = api_key || Convertkit.configuration.api_key
     end
 
     def content_type
@@ -29,8 +31,8 @@ module Convertkit
         f.headers['Content-Type'] = content_type
         f.headers['Accept'] = "*/*"
 
-        f.params['api_secret'] = api_secret
-        f.params['api_key'] = api_key
+        f.params['api_secret'] = api_secret if api_secret
+        f.params['api_key'] = api_key if api_key
 
         f.response :json, content_type: /\bjson$/
       end

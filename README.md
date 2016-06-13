@@ -27,8 +27,8 @@ require "dotenv"
 Dotenv.load(".env.local")
 
 Convertkit.configure do |config|
-	config.api_secret = ENV["API_SECRET"]
-	config.api_key = ENV["API_KEY"]
+  config.api_secret = ENV["API_SECRET"]
+  config.api_key = ENV["API_KEY"]
 end
 
 client = Convertkit::Client.new
@@ -36,30 +36,30 @@ client = Convertkit::Client.new
 
 ## Usage
 
-Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v3](http://api.convertkit.com/v3)
+Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v3](http://api.convertkit.com/v3).
 
 API actions are available as methods on the client object. Currently, the Convertkit client has the following methods:
 
-| Action               		| Method             					 |
+| Action                  | Method                       |
 |:------------------------|:-----------------------------|
-| List subscribers    		| `#subscribers(options = {})` |
-| Fetch a subscriber  		| `#subscriber(subscriber_id)` |
-| List sequences/courses  | `#sequences`									 |
+| List subscribers        | `#subscribers(options = {})` |
+| Fetch a subscriber      | `#subscriber(subscriber_id)` |
+| List sequences/courses  | `#sequences`                 |
 | Add subscriber to sequence | `#add_subscriber_to_sequence(sequence_id, email, options = {})`|
+| List tags               | `#tags`                      |
+| Add subscriber to tag   | `#add_subscriber_to_tag(tag_id, email, options = {})`|
 
-**Note:** We do not have complete API coverage yet. If we are missing an API method
-that you need to use in your application, please file an issue and/or open a
-pull request. [See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
+**Note:** We do not have complete API coverage yet. If we are missing an API method that you need to use in your application, please file an issue and/or open a pull request. [See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
 
 ## Use Cases
 
 Here are some common use cases for the Convertkit v3 API client.
 
-First configure ``convertkit-ruby`` gem with your ``API_KEY`` and ``API_SECRET``, and initialize a new client. After that, you can fetch data from your account.
+First configure the ``convertkit-ruby`` gem with your ``API_KEY`` and ``API_SECRET``, and initialize a new client. After that, you can fetch data from your account.
 
 ### List subscribers
 
-List all subscribers added to your account on or after a certain a specific date.
+List all subscribers added to your account on or after a specific date.
 
 ```ruby
 response = client.subscribers(from: "2016-03-01")
@@ -83,7 +83,9 @@ response.status
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, copy `.env.local.sample` to `.env.local` and substitute your own real values from your account. Finally, run `rake spec` to run the tests.
+
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 

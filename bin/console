@@ -2,6 +2,14 @@
 
 require "bundler/setup"
 require "convertkit"
+require "dotenv"
+
+Dotenv.load(".env.local")
+
+Convertkit.configure do |config|
+  config.api_secret = ENV["API_SECRET"]
+  config.api_key = ENV["API_KEY"]
+end
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.

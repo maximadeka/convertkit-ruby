@@ -36,6 +36,8 @@ module Convertkit
         f.params['api_secret'] = api_secret if api_secret
         f.params['api_key'] = api_key if api_key
 
+#        f.proxy URI('http://localhost:8888')
+
         f.response :json, content_type: /\bjson$/
       end
     end

@@ -9,11 +9,11 @@ module Convertkit
 
       describe "#forms" do
         it "fetches forms", :vcr do
-          #stub = stub_request(:get, "https://api.convertkit.com/v3/forms")
           VCR.use_cassette 'forms' do
             @forms = @client.forms
+            expect(@forms.count).to eq(1)
+            expect(@forms.first["id"]).to eq(133233)
           end
-          #expect(stub).to have_been_made.once
         end
       end
     end

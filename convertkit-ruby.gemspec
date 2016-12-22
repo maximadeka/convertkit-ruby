@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
-  
+
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
@@ -35,5 +35,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "faraday", "~> 0.9.2"
   spec.add_runtime_dependency "faraday_middleware", "~> 0.10.0"
-  spec.add_runtime_dependency "json", "~> 1.8", '>= 1.8.3'
+  spec.add_runtime_dependency "json", '>= 1.8.3'
 end

@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.convertkit.com/v3/forms?api_key=<API_KEY>&api_secret=<API_SECRET>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"2d9600a1c415ac1e19ee2465fe41e8cc"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - XSRF-TOKEN=a1hcmaYVulN4QDrGoRSz6Y51cfjXMdmyJ66kyX3dPECeDZnhdd9AOW%2BBSwx3ppH5jwi4MQ%2FuR5kIfxCRlDy8dg%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTMwYzJkNTcxMWViZjNhMmVjYTIxZjI0NDE0NGZiYjY2BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMTlWWEZlTlBLK21vWHdYSEsxcklpRUFGOXljblkzNTRyTDlHMFdPbmhnRFk9BjsARg%3D%3D--f0567bcf5195953cceab58959153298cdae4426b;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 6816358f-f95d-4374-ada6-9afe67a9717b
+      X-Runtime:
+      - '0.022329'
+      Vary:
+      - Accept-Encoding, Origin
+      Date:
+      - Fri, 02 Dec 2016 22:20:57 GMT
+      X-Rack-Cache:
+      - miss
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"forms":[{"id":133233,"name":"Did you like this post","created_at":"2016-12-01T17:25:23Z","type":"embed","url":"https://app.convertkit.com/landing_pages/133233","embed_js":"https://api.convertkit.com/v3/forms/133233.js?api_key=<API_KEY>","embed_url":"https://api.convertkit.com/v3/forms/133233.html?api_key=<API_KEY>","title":"Did
+        you like this post?","description":"\u003Cp\u003ESubscribe to my newsletter
+        and start every week with a new interesting post! \u003C/p\u003E","sign_up_button_text":"Subscribe","success_message":"Success!
+        Now check your email to confirm your subscription."}]}'
+    http_version: 
+  recorded_at: Fri, 02 Dec 2016 22:21:29 GMT
+recorded_with: VCR 3.0.3

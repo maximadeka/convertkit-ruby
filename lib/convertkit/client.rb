@@ -1,6 +1,7 @@
 require "convertkit/client/sequences"
 require "convertkit/client/subscribers"
 require "convertkit/client/tags"
+require "convertkit/client/forms"
 require "faraday"
 require "faraday_middleware"
 require "json"
@@ -10,6 +11,7 @@ module Convertkit
     include Subscribers
     include Sequences
     include Tags
+    include Forms
 
     attr_accessor :api_secret, :api_key
 

@@ -7,7 +7,7 @@ A Ruby toolkit for [Convertkit](https://convertkit.com/) API.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'convertkit-ruby'
+gem 'convertkit-ruby', require: 'convertkit'
 ```
 
 And then execute:

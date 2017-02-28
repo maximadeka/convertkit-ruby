@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.convertkit.com/v3/forms/175221/subscribe?api_key=<API_KEY>&api_secret=<API_SECRET>&email=test@example.com&fields&first_name&tags
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"6f4dadc87b9a387093acd852dea9618e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - XSRF-TOKEN=0SJZ0xaPTqHyg18%2BKQTSzc8d06nLQ52PAA8CJFnNGYjPxXvaO4%2FiRw1h%2BJy1Mqg3fLc1KeCNh7WK9wi7D%2BTZoQ%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7BzoQX2NzcmZfdG9rZW5JIjFIdWNpQ1MwQXJPYi80cWVpbkRaNityT3E1b0FyemhvNml2Z0tuMVlwd0NrPQY6BkVGSSIPc2Vzc2lvbl9pZAY7BlRJIiViMGU3ZWUxNWM4Y2JkOTA5MDE4MGIzNzc3ZTRkNjE4ZQY7BlQ%3D--af4cf7b866ea64b704d0265f67773beb6a442f1e;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 581c1b56-1f79-4f3e-941b-821ce66ede3e
+      X-Runtime:
+      - '0.239698'
+      Vary:
+      - Accept-Encoding, Origin
+      Date:
+      - Tue, 28 Feb 2017 01:56:05 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"subscription":{"id":376449416,"state":"inactive","created_at":"2017-02-28T01:56:05Z","source":null,"referrer":null,"subscribable_id":175221,"subscribable_type":"form","subscriber":{"id":92766417,"first_name":null,"email_address":"test@example.com","state":"inactive","created_at":"2017-02-28T01:56:05Z","fields":{}}}}'
+    http_version: 
+  recorded_at: Tue, 28 Feb 2017 01:56:05 GMT
+recorded_with: VCR 3.0.3

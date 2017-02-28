@@ -16,6 +16,15 @@ module Convertkit
           end
         end
       end
+
+      describe "#add_subscriber_to_form" do
+        it "returns new subscriber data", :vcr do
+          VCR.use_cassette 'add_subscriber_to_form' do
+            @subscriber = @client.add_subscriber_to_form(175221, 'test@example.com')
+            expect(@subscriber.body['subscription']).to be_truthy
+          end
+        end
+      end
     end
   end
 end

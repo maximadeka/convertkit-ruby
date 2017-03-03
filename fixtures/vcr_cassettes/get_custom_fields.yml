@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.convertkit.com/v3/custom_fields?api_key=<API_KEY>&api_secret=<API_SECRET>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"347787094aacea2ed1f0bc87551ec42e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - XSRF-TOKEN=3%2F4ZwCDq72351KoSaKy5mRS87oiJTV4PCXk5uManqokO9Ej8zQUv4E2vXbPueOaKlRqs9cFcadHV0lqcfUC8dg%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTFjMzc4N2Y5M2YwZGVmZGExYTQ0YjBjYThmMWE1YWU5BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMTBRcFJQTzN2d0kyMGUvZWhodFJmRTRHbVFuMUlFVGZlM0t0akpMdm5Gdjg9BjsARg%3D%3D--4ce462d08e77f8371cb3895c4f85c8425d210525;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 56645fe1-1737-4648-beaa-0b374aa5bb0c
+      X-Runtime:
+      - '0.075874'
+      Vary:
+      - Accept-Encoding, Origin
+      Date:
+      - Fri, 03 Mar 2017 01:05:50 GMT
+      X-Rack-Cache:
+      - miss
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"custom_fields":[{"id":11174,"name":"ck_field_11174_phone_number","key":"phone_number","label":"Phone
+        Number"}]}'
+    http_version: 
+  recorded_at: Fri, 03 Mar 2017 01:05:51 GMT
+recorded_with: VCR 3.0.3

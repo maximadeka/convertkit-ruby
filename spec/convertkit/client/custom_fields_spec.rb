@@ -35,6 +35,15 @@ module Convertkit
         end
       end
 
+      describe '#update_custom_field' do
+        it 'returns no response (status 204)' do
+          VCR.use_cassette 'update_custom_field' do
+            @custom_field = @client.update_custom_field(11184, label: 'Discount Code')
+            expect(@custom_field.status).to eql 204
+          end
+        end
+      end
+
     end
   end
 end

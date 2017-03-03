@@ -16,6 +16,12 @@ module Convertkit
         connection.delete("custom_fields/#{custom_field_id}")
       end
 
+      def update_custom_field(custom_field_id, options = {})
+        connection.put("custom_fields/#{custom_field_id}") do |f|
+          f.params['label'] = options[:label]
+        end
+      end
+
     end
   end
 end

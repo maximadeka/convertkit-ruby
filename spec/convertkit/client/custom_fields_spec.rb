@@ -16,6 +16,16 @@ module Convertkit
           end
         end
       end
+
+      describe '#add_custom_field' do
+        it 'returns the new custom_field', :vcr do
+          VCR.use_cassette 'new_custom_field' do
+            @custom_field = @client.add_custom_field(label: 'Occupation')
+            expect(@custom_field.body['key']).to eql 'occupation'1
+          end
+        end
+      end
+
     end
   end
 end

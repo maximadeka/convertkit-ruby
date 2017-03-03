@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.convertkit.com/v3/custom_fields?api_key=<API_KEY>&api_secret=<API_SECRET>&label=Occupation
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      Location:
+      - "/v3/custom_fields"
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"a28614c3d7734e0085a61cde2c07b05a"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - XSRF-TOKEN=pQN4%2BB%2FjHD4EqdFEpswxsF%2BnGsNfS%2FWTHnzKcnkOQSJucNwxsBRer4bXi%2Fm%2F%2FeMrg221XkmNeQ1%2Fn%2B2f9iLJIw%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7BzoQX2NzcmZfdG9rZW5JIjF5M09reWEvM1FwR0NmbHE5R1RIU205ektyNTBXeG95ZVllTW43WThzaUFFPQY6BkVGSSIPc2Vzc2lvbl9pZAY7BlRJIiVmYTQzNTk1YjI3ZjcxMWU3ZGM4YjZiNTc1MzVjODMyYgY7BlQ%3D--c362e7889147cb4a77103b99cdc5721e88a12b30;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 2eef5bf1-8f2b-4a68-a157-0d7ccbef1012
+      X-Runtime:
+      - '0.073102'
+      Vary:
+      - Accept-Encoding, Origin
+      Date:
+      - Fri, 03 Mar 2017 01:22:53 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"account_id":26718,"created_at":"2017-03-03T01:22:53Z","id":11176,"key":"occupation","kind":null,"label":"Occupation","updated_at":"2017-03-03T01:22:53Z","name":"ck_field_11176_occupation","value":null}'
+    http_version: 
+  recorded_at: Fri, 03 Mar 2017 01:22:53 GMT
+recorded_with: VCR 3.0.3

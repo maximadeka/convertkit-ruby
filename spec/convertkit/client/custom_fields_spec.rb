@@ -26,6 +26,15 @@ module Convertkit
         end
       end
 
+      describe '#delete_custom_field' do
+        it 'returns no response (status 204)' do
+          VCR.use_cassette 'delete_custom_field' do
+            @custom_field = @client.delete_custom_field(11176)
+            expect(@custom_field.status).to eql 204
+          end
+        end
+      end
+
     end
   end
 end

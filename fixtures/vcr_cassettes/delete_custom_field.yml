@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.convertkit.com/v3/custom_fields/11176?api_key=<API_KEY>&api_secret=<API_SECRET>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Server:
+      - Cowboy
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - no-cache, no-transform
+      Set-Cookie:
+      - XSRF-TOKEN=fmDy%2Fft9G%2F27ou%2Bhv1ImZi1kMJKcG5Vy69Hn5%2BlLnf0%2F1DZe%2FiWYEK8teH0uzhrMOmLCLqVvUCtiW1OfX%2BuFpw%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7BzoQX2NzcmZfdG9rZW5JIjFRYlRFb3dWWWcrMFVqNWZja1p3OHFoY0c4cnc1ZE1WWmlZcTBlTGFnR0ZvPQY6BkVGSSIPc2Vzc2lvbl9pZAY7BlRJIiUzMWU1YzVmNjhkM2U1MDI5NjhmN2VhODQ2Mjc4OGVlOQY7BlQ%3D--352d4b2c54243bc8ee9def05694b6eb8bc799561;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 2660d874-056f-4c6d-af0b-8e51a2f8436f
+      X-Runtime:
+      - '0.070583'
+      Date:
+      - Fri, 03 Mar 2017 01:30:58 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Vary:
+      - Origin
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 03 Mar 2017 01:30:58 GMT
+recorded_with: VCR 3.0.3

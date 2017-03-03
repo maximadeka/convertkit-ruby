@@ -12,6 +12,10 @@ module Convertkit
         end
       end
 
+      def delete_custom_field(custom_field_id)
+        connection.delete("custom_fields/#{custom_field_id}")
+      end
+
     end
   end
 end

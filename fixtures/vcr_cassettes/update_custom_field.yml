@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.convertkit.com/v3/custom_fields/11184?api_key=<API_KEY>&api_secret=<API_SECRET>&label=Discount%20Code
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Server:
+      - Cowboy
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - no-cache, no-transform
+      Set-Cookie:
+      - XSRF-TOKEN=KHxmbTwPv230b%2FnQnhMO22pGqNhCPcksnKcn8HEx6KbM%2FH8V8aSKk25Y%2BZgzkACvJUasYJYWXYqihd2OsUBYRg%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7BzoQX2NzcmZfdG9rZW5JIjE1SUFaZU0yck5mNmFOd0JJcllNT2RFOEFCTGpVSzVTbVBpTDZmc0J4c09BPQY6BkVGSSIPc2Vzc2lvbl9pZAY7BlRJIiVkN2NlZmE3M2ZlYjZjOTNjNWY3NTY3ZDc5ZWYzMzliYwY7BlQ%3D--c7d09be19409ef827cd003f03a056e4f374da37c;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 2b8dc9b0-69ef-4c7d-bfaf-1b47ca740e09
+      X-Runtime:
+      - '0.156904'
+      Date:
+      - Fri, 03 Mar 2017 01:41:15 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Vary:
+      - Origin
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 03 Mar 2017 01:41:15 GMT
+recorded_with: VCR 3.0.3

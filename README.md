@@ -50,6 +50,7 @@ API actions are available as methods on the client object. Currently, the Conver
 | Add subscriber to tag   | `#add_subscriber_to_tag(tag_id, email, options = {})`|
 | List forms              | `#forms`                     |
 | Add subscriber to form  | `#add_subscriber_to_form(form_id, email, options = {})`|
+| Unsubscribe             | `#unsubscribe(email)`        |
 
 **Note:** We do not have complete API coverage yet. If we are missing an API method that you need to use in your application, please file an issue and/or open a pull request. [See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
 

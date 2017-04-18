@@ -29,6 +29,18 @@ module Convertkit
           expect(r.body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})
         end
       end
+
+      describe "#unsubscribe" do
+        it "sends the right request" do
+          tag_id = ENV['TAG_ID']
+          email = "crt-subscribers+#{Time.now.to_i}@example.com"
+          @client.add_subscriber_to_tag(tag_id, email)
+          
+          r = @client.unsubscribe(email)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})
+        end
+      end
     end
   end
 end

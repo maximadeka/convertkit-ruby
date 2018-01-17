@@ -16,19 +16,5 @@ module Convertkit
         expect(@client.api_key).to eq(ENV["API_KEY"])
       end
     end
-
-    context "authorization" do
-      it "uses api key" do
-        @client.api_secret = nil
-
-        expect(@client.connection.params["api_key"]).to eq(ENV["API_KEY"])
-      end
-
-      it "uses api secret" do
-        @client.api_key = nil
-
-        expect(@client.connection.params["api_secret"]).to eq(ENV["API_SECRET"])
-      end
-    end
   end
 end

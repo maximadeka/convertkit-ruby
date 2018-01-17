@@ -42,6 +42,7 @@ API actions are available as methods on the client object. Currently, the Conver
 
 | Action                  | Method                       |
 |:------------------------|:-----------------------------|
+| Get account information | `#account`                   |
 | List subscribers        | `#subscribers(options = {})` |
 | Fetch a subscriber      | `#subscriber(subscriber_id)` |
 | List sequences/courses  | `#sequences`                 |

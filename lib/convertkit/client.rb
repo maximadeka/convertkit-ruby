@@ -1,19 +1,21 @@
+require "convertkit/client/account"
+require "convertkit/client/custom_fields"
+require "convertkit/client/forms"
 require "convertkit/client/sequences"
 require "convertkit/client/subscribers"
 require "convertkit/client/tags"
-require "convertkit/client/forms"
-require "convertkit/client/custom_fields"
 require "faraday"
 require "faraday_middleware"
 require "json"
 
 module Convertkit
   class Client
-    include Subscribers
-    include Sequences
-    include Tags
-    include Forms
+    include Account
     include CustomFields
+    include Forms
+    include Sequences
+    include Subscribers
+    include Tags
 
     attr_accessor :api_secret, :api_key
 

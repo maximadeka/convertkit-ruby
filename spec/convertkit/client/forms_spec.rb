@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Convertkit
   class Client
-    describe Sequences do
+    describe Forms do
       before do
         @client = Convertkit::Client.new
       end

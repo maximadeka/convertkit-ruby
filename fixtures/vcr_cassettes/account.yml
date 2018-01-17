@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.convertkit.com/v3/account?api_key=<API_KEY>&api_secret=<API_SECRET>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Convertkit-Ruby v0.0.2
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 17 Jan 2018 09:10:11 GMT
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Frame-Options:
+      - ALLOWALL
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"31780a9f8927b4bd79eabb594a810a34"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - XSRF-TOKEN=diVno%2FS7V7GFb4pbqOovRPnLYFLZ3ZzxHwkwWA6UN0aWW8KoIhJVeGajXm1oQdEkQoN5vcNEMgrgYKVe6io5ZQ%3D%3D;
+        path=/; secure
+      - _mailapp_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTBmZjA3OTJlYmZiZDRlMmZiMDRhOWE1Njk4OGI4N2E5BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMTRINmxDOWFwQXNuanpOUTJ3S3YrWUx0SUdlOGFtYTc3LzJtVkJ1UytEaU09BjsARg%3D%3D--302b98f5ac8e3011ce838971d06f91655aee9c57;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 9d124ca6-8fa0-4af7-8eb6-e9de81fdf524
+      X-Runtime:
+      - '0.045639'
+      Vary:
+      - Accept-Encoding, Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"","primary_email_address":"email@example.com"}'
+    http_version: 
+  recorded_at: Wed, 17 Jan 2018 09:10:12 GMT
+recorded_with: VCR 3.0.3

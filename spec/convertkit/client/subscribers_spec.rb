@@ -30,12 +30,37 @@ module Convertkit
         end
       end
 
+      describe "#update_subscriber" do
+        it "updates a subscriber" do
+          old_email = "old-email-#{Time.now.to_i}@example.com"
+          new_email = "new-email-#{Time.now.to_i}@example.com"
+          subscriber_id = @client.add_subscriber_to_tag(ENV["TAG_ID"], old_email).body["subscription"]["subscriber"]["id"]
+
+          response = @client.update_subscriber(subscriber_id, { email_address: new_email })
+
+          subscriber = response["subscriber"]
+          expect(subscriber["email_address"]).to eq(new_email)
+        end
+
+        it "only updates provided attributes" do
+          email = "old-email-#{Time.now.to_i}@example.com"
+          first_name = "first_name"
+          subscriber_id = @client.add_subscriber_to_tag(ENV["TAG_ID"], email, first_name: first_name).body["subscription"]["subscriber"]["id"]
+
+          response = @client.update_subscriber(subscriber_id)
+
+          subscriber = response["subscriber"]
+          expect(subscriber["email_address"]).to eq(email)
+          expect(subscriber["first_name"]).to eq(first_name)
+        end
+      end
+
       describe "#unsubscribe" do
         it "sends the right request" do
           tag_id = ENV['TAG_ID']
           email = "crt-subscribers+#{Time.now.to_i}@example.com"
           @client.add_subscriber_to_tag(tag_id, email)
-          
+
           r = @client.unsubscribe(email)
           expect(r.success?).to be_truthy
           expect(r.body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})

@@ -49,6 +49,8 @@ API actions are available as methods on the client object. Currently, the Conver
 | Add subscriber to sequence | `#add_subscriber_to_sequence(sequence_id, email, options = {})`|
 | List tags               | `#tags`                      |
 | Add subscriber to tag   | `#add_subscriber_to_tag(tag_id, email, options = {})`|
+| Create a tag            | `#create_tag(tag_name)`      |
+| Create multiple tags    | `#create_tags(tag_names)`|
 | List forms              | `#forms`                     |
 | Add subscriber to form  | `#add_subscriber_to_form(form_id, email, options = {})`|
 | Unsubscribe             | `#unsubscribe(email)`        |

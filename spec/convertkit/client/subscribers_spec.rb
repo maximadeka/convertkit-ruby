@@ -1,4 +1,5 @@
 require "spec_helper"
+require "securerandom"
 
 module Convertkit
   class Client
@@ -45,7 +46,7 @@ module Convertkit
       describe "#remove_tag_from_subscriber" do
         it "removes tag from a subscriber" do
           tag_id = ENV['TAG_ID']
-          email = "crt-subscribers+#{Time.now.to_i}@example.com"
+          email = "#{SecureRandom.hex}@example.com"
           subscriber = @client.add_subscriber_to_tag(tag_id, email).body["subscription"]["subscriber"]
 
           expect {

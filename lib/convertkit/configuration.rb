@@ -1,10 +1,11 @@
 module Convertkit
   class Configuration
     attr_accessor :api_secret, :api_key
+    attr_accessor :timeout, :open_timeout
 
     def initialize
-      @api_secret = nil
-      @api_key = nil
+      @timeout = 30
+      @open_timeout = 5
     end
   end
 end

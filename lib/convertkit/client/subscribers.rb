@@ -9,6 +9,15 @@ module Convertkit
         connection.get("subscribers/#{subscriber_id}")
       end
 
+      def update_subscriber(subscriber_id, options = {})
+        response = connection.put("subscribers/#{subscriber_id}") do |f|
+          f.params["email_address"] = options[:email_address] if options[:email_address]
+          f.params["fields"] = options[:fields] if options[:fields]
+          f.params["first_name"] = options[:first_name] if options[:first_name]
+        end
+        response.body
+      end
+
       def unsubscribe(email)
         connection.put("unsubscribe") do |f|
           f.params['email'] = email

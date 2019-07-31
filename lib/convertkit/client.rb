@@ -4,9 +4,7 @@ require "convertkit/client/forms"
 require "convertkit/client/sequences"
 require "convertkit/client/subscribers"
 require "convertkit/client/tags"
-require "faraday"
-require "faraday_middleware"
-require "json"
+require "convertkit/connection"
 
 module Convertkit
   class Client
@@ -24,24 +22,8 @@ module Convertkit
       @api_key = api_key || Convertkit.configuration.api_key
     end
 
-    def content_type
-      'application/vnd.api+json'
-    end
-
     def connection
-      @connection ||= Faraday.new do |f|
-        f.url_prefix = "https://api.convertkit.com/v3/"
-        f.adapter :net_http
-
-        f.headers['User-Agent'] = "Convertkit-Ruby v#{Convertkit::VERSION}"
-        f.headers['Content-Type'] = content_type
-        f.headers['Accept'] = "*/*"
-
-        f.params['api_secret'] = api_secret if api_secret
-        f.params['api_key'] = api_key if api_key
-
-        f.response :json, content_type: /\bjson$/
-      end
+      @connection ||= Connection.new(api_key: api_key, api_secret: api_secret)
     end
   end
 end

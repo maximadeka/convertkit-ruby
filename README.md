@@ -40,6 +40,7 @@ Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v
 
 API actions are available as methods on the client object. Currently, the Convertkit client has the following methods:
 
+
 | Action                       | Method                                                          |
 |:-----------------------------|:----------------------------------------------------------------|
 | Get account information      | `#account`                                                      |

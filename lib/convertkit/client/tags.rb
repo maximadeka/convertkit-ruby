@@ -13,6 +13,20 @@ module Convertkit
           f.params['tags'] = options[:tags]
         end
       end
+
+      def create_tag(tag_name)
+        response = connection.post("tags") do |request|
+          request.params["tag"] = { name: tag_name }
+        end
+        response.body
+      end
+
+      def create_tags(tag_names)
+        response = connection.post("tags") do |request|
+          request.params["tag"] = tag_names.map { |tag_name| { name: tag_name } }
+        end
+        response.body
+      end
     end
   end
 end

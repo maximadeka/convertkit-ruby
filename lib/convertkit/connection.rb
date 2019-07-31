@@ -67,6 +67,8 @@ module Convertkit
       case response.status
       when 401
         raise AuthorizationError.new(response.body)
+      when 404
+        raise NotFoundError.new(response.body)
       when 422
         raise UnprocessableEntityError.new(response.body)
       when 429

@@ -29,6 +29,12 @@ module Convertkit
         expect { @connection.get("account") }.to raise_error(AuthorizationError)
       end
 
+      it "handles 404 errors" do
+        stub_request(:get, /.*/).to_return(status: 404)
+
+        expect { @connection.get("account") }.to raise_error(NotFoundError)
+      end
+
       it "handles 422 errors" do
         stub_request(:get, /.*/).to_return(status: 422)
 

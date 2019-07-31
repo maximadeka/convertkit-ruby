@@ -38,6 +38,9 @@ module Convertkit
         f.url_prefix = "https://api.convertkit.com/v3/"
         f.adapter :net_http
 
+        f.options.timeout = Convertkit.configuration.timeout
+        f.options.open_timeout = Convertkit.configuration.open_timeout
+
         f.headers['User-Agent'] = "Convertkit-Ruby v#{Convertkit::VERSION}"
         f.headers['Content-Type'] = content_type
         f.headers['Accept'] = "*/*"

@@ -9,6 +9,10 @@ module Convertkit
         connection.get("subscribers/#{subscriber_id}")
       end
 
+      def subscriber_tags(subscriber_id)
+        connection.get("subscribers/#{subscriber_id}/tags")
+      end
+
       def update_subscriber(subscriber_id, options = {})
         response = connection.put("subscribers/#{subscriber_id}") do |f|
           f.params["email_address"] = options[:email_address] if options[:email_address]

@@ -32,6 +32,28 @@ module Convertkit
         end
       end
 
+      describe "#remove_tag_from_subscriber" do
+        it "sends the right request" do
+          subscriber_id = ENV['SUBSCRIBER_ID']
+          tag_id = ENV['TAG_ID']
+          
+          r = @client.remove_tag_from_subscriber(tag_id, subscriber_id)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})
+        end
+      end
+
+      describe "#remove_tag_from_subscriber_by_email" do
+        it "sends the right request" do
+          tag_id = ENV['TAG_ID']
+          email = "crt-tags+#{Time.now.to_i}@example.com"
+          
+          r = @client.remove_tag_from_subscriber_by_email(tag_id, email)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Missing parameter","message"=>"Subscriber email is required"})
+        end
+      end
+
       describe "#create_tag" do
         it "creates a tag" do
           tag_name = "tag-#{SecureRandom.hex}"
@@ -51,6 +73,16 @@ module Convertkit
 
           expect(tags[0]["name"]).to eq(tag_name1)
           expect(tags[1]["name"]).to eq(tag_name2)
+        end
+      end
+
+      describe "#subscriptions_to_tag" do
+        it "sends the right request" do
+          tag_id = ENV['TAG_ID']
+
+          r = @client.subscriptions_to_tag(tag_id)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Authorization Failed", "message"=>"API Key not present"})
         end
       end
     end

@@ -14,6 +14,16 @@ module Convertkit
         end
       end
 
+      def remove_tag_from_subscriber(tag_id, subscriber_id)
+        connection.delete("subscribers/#{subscriber_id}/tags/#{tag_id}")
+      end
+
+      def remove_tag_from_subscriber_by_email(tag_id, email)
+        connection.post("tags/#{tag_id}/unsubscribe") do |f|
+          f.params['email'] = email
+        end
+      end
+
       def create_tag(tag_name)
         response = connection.post("tags") do |request|
           request.params["tag"] = { name: tag_name }
@@ -26,6 +36,13 @@ module Convertkit
           request.params["tag"] = tag_names.map { |tag_name| { name: tag_name } }
         end
         response.body
+      end
+
+      def subscriptions_to_tag(tag_id, options = {})
+        connection.get("tags/#{tag_id}/subscriptions", options) do |f|
+          f.params["sort_order"] = options[:sort_order] if options[:sort_order]
+          f.params["subscriber_state"] = options[:subscriber_state] if options[:subscriber_state]
+        end
       end
     end
   end

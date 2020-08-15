@@ -32,6 +32,17 @@ module Convertkit
         end
       end
 
+      describe "#remove_tag_from_subscriber" do
+        it "sends the right request" do
+          subscriber_id = ENV['SUBSCRIBER_ID']
+          tag_id = ENV['TAG_ID']
+          
+          r = @client.remove_tag_from_subscriber(tag_id, subscriber_id)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Not Found", "message"=>"The entity you were trying to find doesn't exist"})
+        end
+      end
+
       describe "#create_tag" do
         it "creates a tag" do
           tag_name = "tag-#{SecureRandom.hex}"

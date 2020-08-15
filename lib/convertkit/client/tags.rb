@@ -14,6 +14,10 @@ module Convertkit
         end
       end
 
+      def remove_tag_from_subscriber(tag_id, subscriber_id)
+        connection.delete("subscribers/#{subscriber_id}/tags/#{tag_id}")
+      end
+
       def create_tag(tag_name)
         response = connection.post("tags") do |request|
           request.params["tag"] = { name: tag_name }

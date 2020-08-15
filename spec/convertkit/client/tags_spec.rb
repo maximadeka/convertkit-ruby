@@ -75,6 +75,16 @@ module Convertkit
           expect(tags[1]["name"]).to eq(tag_name2)
         end
       end
+
+      describe "#subscriptions_to_tag" do
+        it "sends the right request" do
+          tag_id = ENV['TAG_ID']
+
+          r = @client.subscriptions_to_tag(tag_id)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Authorization Failed", "message"=>"API Key not present"})
+        end
+      end
     end
   end
 end

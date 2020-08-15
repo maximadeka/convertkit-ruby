@@ -37,6 +37,13 @@ module Convertkit
         end
         response.body
       end
+
+      def subscriptions_to_tag(tag_id, options = {})
+        connection.get("tags/#{tag_id}/subscriptions", options) do |f|
+          f.params["sort_order"] = options[:sort_order] if options[:sort_order]
+          f.params["subscriber_state"] = options[:subscriber_state] if options[:subscriber_state]
+        end
+      end
     end
   end
 end

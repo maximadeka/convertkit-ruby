@@ -43,6 +43,17 @@ module Convertkit
         end
       end
 
+      describe "#remove_tag_from_subscriber_by_email" do
+        it "sends the right request" do
+          tag_id = ENV['TAG_ID']
+          email = "crt-tags+#{Time.now.to_i}@example.com"
+          
+          r = @client.remove_tag_from_subscriber_by_email(tag_id, email)
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Missing parameter","message"=>"Subscriber email is required"})
+        end
+      end
+
       describe "#create_tag" do
         it "creates a tag" do
           tag_name = "tag-#{SecureRandom.hex}"

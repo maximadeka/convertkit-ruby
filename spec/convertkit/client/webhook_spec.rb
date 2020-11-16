@@ -16,6 +16,14 @@ module Convertkit
         @rule_id = 1175937
       end
 
+      describe "#subscribers" do
+        it "sends the right request" do
+          r = @client.webhooks
+          expect(r.success?).to be_truthy
+          expect(r.body).to_not eql({"error"=>"Authorization Failed", "message"=>"API Key not present"})
+        end
+      end
+
       describe "#create_webhook" do
         it "creates a webhook" do
           url = "https://example.com/#{SecureRandom.hex}"

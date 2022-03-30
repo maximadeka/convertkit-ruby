@@ -5,6 +5,10 @@ module Convertkit
         connection.get("tags")
       end
 
+      def tag_subscriptions(tag_id, options = {})
+        connection.get("tags/#{tag_id}/subscriptions", options)
+      end      
+      
       def add_subscriber_to_tag(tag_id, email, options = {})
         connection.post("tags/#{tag_id}/subscribe") do |f|
           f.params['email'] = email

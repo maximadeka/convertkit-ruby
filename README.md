@@ -36,7 +36,7 @@ client = Convertkit::Client.new
 
 ## Usage
 
-Calls for Convertkit API v3 are relative to the url [http://api.convertkit.com/v3](http://api.convertkit.com/v3).
+Calls for Convertkit API v3 are relative to the url [https://api.convertkit.com/v3](https://api.convertkit.com/v3).
 
 API actions are available as methods on the client object. Currently, the Convertkit client has the following methods:
 
@@ -57,7 +57,7 @@ API actions are available as methods on the client object. Currently, the Conver
 
 **Note:** We do not have complete API coverage yet. If we are missing an API method that you need to use in your application, please file an issue and/or open a pull request. 
 
-[See the official API documentation](http://kb.convertkit.com/article/api-documentation-v3/) for a complete API reference.
+[See the official API documentation](https://developers.convertkit.com/) for a complete API reference.
 
 ## Use Cases
 

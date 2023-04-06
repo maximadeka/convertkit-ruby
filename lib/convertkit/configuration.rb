@@ -1,6 +1,6 @@
 module Convertkit
   class Configuration
-    attr_accessor :api_secret, :api_key
+    attr_accessor :api_secret, :api_key, :integration_key
     attr_accessor :timeout, :open_timeout
 
     def initialize

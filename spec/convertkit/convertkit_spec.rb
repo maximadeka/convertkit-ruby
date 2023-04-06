@@ -30,6 +30,14 @@ describe Convertkit do
       expect(Convertkit.configuration.api_key).to eql("new_key")
     end
 
+    it "sets the integration_key value" do
+      Convertkit.configure do |config|
+        config.integration_key = "new_key"
+      end
+
+      expect(Convertkit.configuration.integration_key).to eql("new_key")
+    end
+
     it "sets the timeout value" do
       Convertkit.configure do |config|
         config.timeout = 10

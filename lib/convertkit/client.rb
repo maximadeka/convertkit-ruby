@@ -17,15 +17,16 @@ module Convertkit
     include Webhooks
     include Tags
 
-    attr_accessor :api_secret, :api_key
+    attr_accessor :api_secret, :api_key, :integration_key
 
-    def initialize( api_key=nil, api_secret=nil )
+    def initialize( api_key=nil, api_secret=nil, integration_key=nil )
       @api_secret = api_secret || Convertkit.configuration.api_secret
       @api_key = api_key || Convertkit.configuration.api_key
+      @integration_key = integration_key || Convertkit.configuration.integration_key
     end
 
     def connection
-      @connection ||= Connection.new(api_key: api_key, api_secret: api_secret)
+      @connection ||= Connection.new(api_key: api_key, api_secret: api_secret, integration_key: integration_key)
     end
   end
 end

@@ -7,8 +7,8 @@ module Convertkit
   class Connection
     attr_reader :http_connection
 
-    def initialize(api_key: nil, api_secret: nil)
-      @http_connection = faraday_connection(api_key, api_secret)
+    def initialize(api_key: nil, api_secret: nil, integration_key: nil)
+      @http_connection = faraday_connection(api_key, api_secret, integration_key)
     end
 
     def content_type
@@ -33,7 +33,7 @@ module Convertkit
 
     private
 
-    def faraday_connection(api_key, api_secret)
+    def faraday_connection(api_key, api_secret, integration_key)
       Faraday.new do |f|
         f.url_prefix = "https://api.convertkit.com/v3/"
         f.adapter :net_http
@@ -47,6 +47,7 @@ module Convertkit
 
         f.params['api_secret'] = api_secret if api_secret
         f.params['api_key'] = api_key if api_key
+        f.params['integration_key'] = integration_key if integration_key
 
         f.response :json, content_type: /\bjson$/
       end
